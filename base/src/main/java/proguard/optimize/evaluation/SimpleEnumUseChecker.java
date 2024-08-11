@@ -20,8 +20,6 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -35,6 +33,7 @@ import proguard.evaluation.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.OptimizationInfoClassFilter;
 import proguard.optimize.info.SimpleEnumMarker;
+import proguard.util.Logger;
 
 /**
  * This ClassVisitor marks enums that can't be simplified due to the way they
@@ -52,7 +51,7 @@ implements   ClassVisitor,
              InstructionVisitor,
              ParameterVisitor
 {
-    private static final Logger logger = LogManager.getLogger(SimpleEnumUseChecker.class);
+    private static final Logger logger = Logger.getLogger(SimpleEnumUseChecker.class);
 
     private final PartialEvaluator       partialEvaluator;
     private final MemberVisitor          methodCodeChecker           = new AllAttributeVisitor(this);

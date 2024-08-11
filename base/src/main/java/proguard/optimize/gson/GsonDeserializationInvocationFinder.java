@@ -20,8 +20,6 @@
  */
 package proguard.optimize.gson;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -33,6 +31,7 @@ import proguard.classfile.util.*;
 import proguard.classfile.visitor.ClassVisitor;
 import proguard.evaluation.*;
 import proguard.evaluation.value.*;
+import proguard.util.Logger;
 
 /**
  * This instruction visitor searches the code for invocations to any of the
@@ -44,7 +43,7 @@ import proguard.evaluation.value.*;
 public class GsonDeserializationInvocationFinder
 implements   InstructionVisitor
 {
-    private static final Logger logger = LogManager.getLogger(GsonDeserializationInvocationFinder.class);
+    private static final Logger logger = Logger.getLogger(GsonDeserializationInvocationFinder.class);
 
     private final ClassPool                   programClassPool;
     private final ClassPool                   libraryClassPool;

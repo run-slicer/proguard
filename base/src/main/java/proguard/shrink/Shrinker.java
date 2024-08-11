@@ -20,8 +20,6 @@
  */
 package proguard.shrink;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.*;
 import proguard.classfile.*;
 import proguard.classfile.kotlin.visitor.ReferencedKotlinMetadataVisitor;
@@ -41,7 +39,7 @@ import java.io.*;
  */
 public class Shrinker implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Shrinker.class);
+    private static final Logger logger = Logger.getLogger(Shrinker.class);
     private final Configuration configuration;
     private final boolean       afterOptimizer;
 

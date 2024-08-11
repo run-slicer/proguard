@@ -20,8 +20,6 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -31,6 +29,7 @@ import proguard.classfile.util.*;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.evaluation.PartialEvaluator;
 import proguard.evaluation.value.*;
+import proguard.util.Logger;
 
 /**
  * This MemberVisitor counts the parameters and marks the used parameters
@@ -44,7 +43,7 @@ implements   MemberVisitor,
              AttributeVisitor,
              InstructionVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ParameterUsageMarker.class);
+    private static final Logger logger = Logger.getLogger(ParameterUsageMarker.class);
 
 
     private final boolean          markThisParameter;
@@ -175,7 +174,7 @@ implements   MemberVisitor,
                 }
             }
 
-            logger.debug("{}",
+            /*logger.debug("{}",
                 () -> {
                     StringBuilder debugMessage = new StringBuilder(String.format("ParameterUsageMarker: [%s.%s%s]: ",
                             programClass.getName(),
@@ -186,7 +185,7 @@ implements   MemberVisitor,
                     }
                     return debugMessage.toString();
                 }
-            );
+            );*/
         }
 
         // Set the parameter size.

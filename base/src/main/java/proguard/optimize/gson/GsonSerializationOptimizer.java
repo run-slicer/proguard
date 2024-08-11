@@ -20,8 +20,6 @@
  */
 package proguard.optimize.gson;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.annotation.visitor.AnnotationVisitor;
 import proguard.classfile.attribute.annotation.visitor.ElementValueVisitor;
@@ -36,6 +34,7 @@ import proguard.classfile.visitor.MemberAccessFilter;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.io.ExtraDataEntryNameMap;
 import proguard.optimize.info.ProgramMemberOptimizationInfoSetter;
+import proguard.util.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,7 +55,7 @@ implements   MemberVisitor,
              AttributeVisitor,
              AnnotationVisitor
 {
-    private static final Logger logger = LogManager.getLogger(GsonSerializationOptimizer.class);
+    private static final Logger logger = Logger.getLogger(GsonSerializationOptimizer.class);
 
     private static final int VALUE_VARIABLE_INDEX = ClassUtil.internalMethodParameterSize(METHOD_TYPE_TO_JSON_BODY, false);
 

@@ -20,8 +20,6 @@
  */
 package proguard.backport;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.AccessConstants;
 import proguard.classfile.ClassConstants;
 import proguard.classfile.ClassPool;
@@ -59,6 +57,7 @@ import proguard.classfile.visitor.MemberAccessSetter;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.classfile.visitor.MultiClassVisitor;
 import proguard.io.ExtraDataEntryNameMap;
+import proguard.util.Logger;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,7 +79,7 @@ implements ClassVisitor,
            AttributeVisitor,
            InstructionVisitor
 {
-    private static final Logger logger = LogManager.getLogger(LambdaExpressionConverter.class);
+    private static final Logger logger = Logger.getLogger(LambdaExpressionConverter.class);
 
 
     private static final String LAMBDA_SINGLETON_FIELD_NAME = "INSTANCE";

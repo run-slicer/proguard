@@ -20,8 +20,6 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.AccessConstants;
 import proguard.classfile.Clazz;
 import proguard.classfile.Field;
@@ -40,6 +38,7 @@ import proguard.classfile.instruction.ConstantInstruction;
 import proguard.classfile.instruction.Instruction;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
 import proguard.classfile.visitor.ClassVisitor;
+import proguard.util.Logger;
 import proguard.util.ProcessingFlags;
 
 /**
@@ -58,7 +57,7 @@ implements   InstructionVisitor,
              ConstantVisitor,
              ClassVisitor
 {
-    private static final Logger logger = LogManager.getLogger(MemberReferenceGeneralizer.class);
+    private static final Logger logger = Logger.getLogger(MemberReferenceGeneralizer.class);
 
     private final boolean             fieldGeneralizationClass;
     private final boolean             methodGeneralizationClass;

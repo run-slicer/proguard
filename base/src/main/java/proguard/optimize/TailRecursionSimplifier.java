@@ -20,8 +20,6 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -31,6 +29,7 @@ import proguard.classfile.editor.CodeAttributeComposer;
 import proguard.classfile.instruction.*;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
 import proguard.classfile.util.*;
+import proguard.util.Logger;
 
 /**
  * This MemberVisitor simplifies tail recursion calls in  all methods that it
@@ -44,7 +43,7 @@ implements   AttributeVisitor,
              ConstantVisitor,
              ExceptionInfoVisitor
 {
-    private static final Logger logger = LogManager.getLogger(TailRecursionSimplifier.class);
+    private static final Logger logger = Logger.getLogger(TailRecursionSimplifier.class);
 
 
     private final InstructionVisitor extraTailRecursionVisitor;

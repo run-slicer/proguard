@@ -20,8 +20,6 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -35,6 +33,7 @@ import proguard.classfile.visitor.*;
 import proguard.evaluation.PartialEvaluator;
 import proguard.evaluation.value.*;
 import proguard.optimize.info.SimpleEnumMarker;
+import proguard.util.Logger;
 
 /**
  * This AttributeVisitor simplifies the use of enums in the code attributes that
@@ -50,7 +49,7 @@ implements   AttributeVisitor,
              ConstantVisitor,
              ParameterVisitor
 {
-    private static final Logger logger = LogManager.getLogger(SimpleEnumUseSimplifier.class);
+    private static final Logger logger = Logger.getLogger(SimpleEnumUseSimplifier.class);
 
 
     private final InstructionVisitor extraInstructionVisitor;

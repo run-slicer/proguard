@@ -20,8 +20,6 @@
  */
 package proguard.backport;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.annotation.*;
@@ -61,7 +59,7 @@ implements ClassVisitor,
            AnnotationVisitor,
            ElementValueVisitor
 {
-    private static final Logger logger = LogManager.getFormatterLogger(AbstractAPIConverter.class);
+    private static final Logger logger = Logger.getLogger(AbstractAPIConverter.class);
 
     private final ClassPool          programClassPool;
     private final ClassPool          libraryClassPool;

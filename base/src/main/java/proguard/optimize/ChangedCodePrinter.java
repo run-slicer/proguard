@@ -20,8 +20,6 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.annotation.*;
@@ -29,6 +27,7 @@ import proguard.classfile.attribute.module.*;
 import proguard.classfile.attribute.preverification.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
 import proguard.classfile.util.ClassUtil;
+import proguard.util.Logger;
 
 /**
  * This AttributeVisitor delegates its call to another AttributeVisitor, and
@@ -39,7 +38,7 @@ import proguard.classfile.util.ClassUtil;
 public class ChangedCodePrinter
 implements   AttributeVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ChangedCodePrinter.class);
+    private static final Logger logger = Logger.getLogger(ChangedCodePrinter.class);
     private final AttributeVisitor attributeVisitor;
 
 

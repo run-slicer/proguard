@@ -20,8 +20,6 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.CodeAttribute;
 import proguard.classfile.constant.*;
@@ -29,6 +27,7 @@ import proguard.classfile.constant.visitor.ConstantVisitor;
 import proguard.classfile.instruction.*;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
 import proguard.classfile.visitor.MemberVisitor;
+import proguard.util.Logger;
 
 /**
  * This InstructionVisitor marks all fields that are write-only.
@@ -40,7 +39,7 @@ implements   InstructionVisitor,
              ConstantVisitor,
              MemberVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ReadWriteFieldMarker.class);
+    private static final Logger logger = Logger.getLogger(ReadWriteFieldMarker.class);
 
 
     private final MutableBoolean repeatTrigger;

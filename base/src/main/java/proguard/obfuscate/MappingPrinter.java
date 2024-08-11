@@ -20,8 +20,6 @@
  */
 package proguard.obfuscate;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import proguard.classfile.Clazz;
@@ -40,6 +38,7 @@ import proguard.classfile.util.ClassUtil;
 import proguard.classfile.visitor.ClassVisitor;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.optimize.peephole.LineNumberLinearizer;
+import proguard.util.Logger;
 
 import java.io.PrintWriter;
 import java.util.Stack;
@@ -63,7 +62,7 @@ implements   ClassVisitor,
     // A field serving as a return value for the visitor methods.
     private boolean printed;
 
-    private static final Logger logger = LogManager.getLogger(MappingPrinter.class);
+    private static final Logger logger = Logger.getLogger(MappingPrinter.class);
 
 
     /**

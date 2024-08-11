@@ -20,14 +20,13 @@
  */
 package proguard.preverify;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.AppView;
 import proguard.Configuration;
 import proguard.classfile.*;
 import proguard.classfile.attribute.visitor.AllAttributeVisitor;
 import proguard.classfile.visitor.*;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 
 /**
  * This pass can inline subroutines in methods. This is generally useful (i.e.
@@ -37,7 +36,7 @@ import proguard.pass.Pass;
  */
 public class SubroutineInliner implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(SubroutineInliner.class);
+    private static final Logger logger = Logger.getLogger(SubroutineInliner.class);
 
     private final Configuration configuration;
 

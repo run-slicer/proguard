@@ -7,10 +7,9 @@
 
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.visitor.*;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 import proguard.util.PrintWriterUtil;
 
 import java.io.PrintWriter;
@@ -22,7 +21,7 @@ import java.io.PrintWriter;
  */
 public class Dumper implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Dumper.class);
+    private static final Logger logger = Logger.getLogger(Dumper.class);
 
     private final Configuration configuration;
 

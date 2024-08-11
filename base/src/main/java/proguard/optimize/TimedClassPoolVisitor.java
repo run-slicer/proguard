@@ -20,11 +20,10 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.ClassPool;
 import proguard.classfile.visitor.*;
 import proguard.optimize.info.ParameterEscapedMarker;
+import proguard.util.Logger;
 
 /**
  * A simple class pool visitor that will output timing information.
@@ -32,7 +31,7 @@ import proguard.optimize.info.ParameterEscapedMarker;
 public class TimedClassPoolVisitor
 implements   ClassPoolVisitor
 {
-    private static final Logger logger = LogManager.getFormatterLogger(TimedClassPoolVisitor.class);
+    private static final Logger logger = Logger.getLogger(TimedClassPoolVisitor.class);
 
     private final String           message;
     private final ClassPoolVisitor classPoolVisitor;

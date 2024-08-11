@@ -22,20 +22,19 @@
 
 package proguard.util.kotlin.asserter;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.AppView;
 import proguard.Configuration;
 import proguard.classfile.util.WarningLogger;
 import proguard.pass.Pass;
 import proguard.resources.file.ResourceFilePool;
+import proguard.util.Logger;
 
 /**
  * This pass performs a series of checks to see whether the kotlin metadata is intact.
  */
 public class KotlinMetadataVerifier implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(KotlinMetadataVerifier.class);
+    private static final Logger logger = Logger.getLogger(KotlinMetadataVerifier.class);
 
     private final Configuration configuration;
 

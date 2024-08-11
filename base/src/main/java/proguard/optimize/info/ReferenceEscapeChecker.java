@@ -21,9 +21,6 @@
 
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -37,6 +34,7 @@ import proguard.evaluation.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.evaluation.*;
 import proguard.util.ArrayUtil;
+import proguard.util.Logger;
 
 /**
  * This AttributeVisitor can tell whether reference parameters and instances
@@ -50,7 +48,7 @@ implements   AttributeVisitor,
              InstructionVisitor,
              ConstantVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ReferenceEscapeChecker.class);
+    private static final Logger logger = Logger.getLogger(ReferenceEscapeChecker.class);
 
 
     private boolean[] instanceEscaping  = new boolean[ClassEstimates.TYPICAL_CODE_LENGTH];
@@ -178,7 +176,7 @@ implements   AttributeVisitor,
                      method.getDescriptor(clazz)
         );
 
-        if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
+        /*if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
         {
             for (int index = 0; index < codeLength; index++) {
                 if (partialEvaluator.isInstruction(index)) {
@@ -191,7 +189,7 @@ implements   AttributeVisitor,
                     );
                 }
             }
-        }
+        }*/
     }
 
 

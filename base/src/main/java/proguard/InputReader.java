@@ -20,8 +20,6 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.kotlin.KotlinConstants;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
@@ -45,7 +43,7 @@ import static proguard.DataEntryReaderFactory.getFilterExcludingVersionedClasses
  */
 public class InputReader implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(InputReader.class);
+    private static final Logger logger = Logger.getLogger(InputReader.class);
 
     private static final boolean DONT_READ_LIBRARY_KOTLIN_METADATA = System.getProperty("proguard.dontreadlibrarykotlinmetadata") != null;
 

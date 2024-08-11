@@ -8,8 +8,6 @@
 package proguard.strip;
 
 import proguard.AppView;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.Configuration;
 import proguard.classfile.Clazz;
 import proguard.classfile.attribute.Attribute;
@@ -24,6 +22,7 @@ import proguard.classfile.kotlin.visitor.KotlinMetadataRemover;
 import proguard.classfile.kotlin.visitor.filter.KotlinClassFilter;
 import proguard.classfile.visitor.*;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 import proguard.util.ProcessingFlagSetter;
 import proguard.util.ProcessingFlags;
 
@@ -37,7 +36,7 @@ import static proguard.util.ProcessingFlags.*;
  */
 public class KotlinAnnotationStripper implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(KotlinAnnotationStripper.class);
+    private static final Logger logger = Logger.getLogger(KotlinAnnotationStripper.class);
 
     private final Configuration configuration;
 

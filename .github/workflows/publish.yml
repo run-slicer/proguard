@@ -1,0 +1,30 @@
+name: Build and publish
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+          distribution: temurin
+          cache: gradle
+      - name: Build and publish
+        run: ./gradlew publishAllPublicationsToGithubRepository
+        env:
+          ORG_GRADLE_PROJECT_PROGUARD_GITHUB_USERNAME: ${{ github.repository_owner }}
+          ORG_GRADLE_PROJECT_PROGUARD_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -20,14 +20,13 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.CodeAttribute;
 import proguard.classfile.instruction.Instruction;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
 import proguard.classfile.visitor.*;
 import proguard.optimize.*;
+import proguard.util.Logger;
 
 /**
  * This MemberVisitor and InstructionVisitor marks all methods and classes
@@ -41,7 +40,7 @@ public class SideEffectMethodMarker
 implements   MemberVisitor,
              InstructionVisitor
 {
-    private static final Logger logger = LogManager.getLogger(SideEffectMethodMarker.class);
+    private static final Logger logger = Logger.getLogger(SideEffectMethodMarker.class);
 
     private final MemberVisitor extraMemberVisitor;
 

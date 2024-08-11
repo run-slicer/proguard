@@ -20,12 +20,11 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.optimize.info.ReadWriteFieldMarker;
+import proguard.util.Logger;
 
 import java.util.List;
 
@@ -37,7 +36,7 @@ import java.util.List;
 public class ClassMemberChecker
 implements   MemberVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ClassMemberChecker.class);
+    private static final Logger logger = Logger.getLogger(ClassMemberChecker.class);
     private final ClassPool      programClassPool;
     private final WarningPrinter notePrinter;
 

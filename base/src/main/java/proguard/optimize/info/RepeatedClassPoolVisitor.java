@@ -21,10 +21,9 @@
 
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.ClassPool;
 import proguard.classfile.visitor.ClassPoolVisitor;
+import proguard.util.Logger;
 
 /**
  * This ClassPoolVisitor repeatedly delegates to a given class pool visitor, as
@@ -35,7 +34,7 @@ import proguard.classfile.visitor.ClassPoolVisitor;
 public class RepeatedClassPoolVisitor
 implements   ClassPoolVisitor
 {
-    private static final Logger logger = LogManager.getLogger(RepeatedClassPoolVisitor.class);
+    private static final Logger logger = Logger.getLogger(RepeatedClassPoolVisitor.class);
 
 
     private final MutableBoolean   repeatTrigger;

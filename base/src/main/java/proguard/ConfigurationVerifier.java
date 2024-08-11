@@ -20,10 +20,9 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.util.WarningLogger;
 import proguard.classfile.util.WarningPrinter;
+import proguard.util.Logger;
 
 import java.io.*;
 
@@ -34,7 +33,7 @@ import java.io.*;
  */
 public class ConfigurationVerifier
 {
-    private static final Logger logger = LogManager.getLogger(ConfigurationVerifier.class);
+    private static final Logger logger = Logger.getLogger(ConfigurationVerifier.class);
 
     private final Configuration configuration;
 

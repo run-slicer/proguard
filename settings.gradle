@@ -18,11 +18,11 @@ plugins {
 rootProject.name = 'proguard'
 
 include 'base'
-include 'proguard-app'
+/*include 'proguard-app'
 include 'retrace'
 include 'gui'
 include 'gradle-plugin'
 include 'ant'
 include 'annotations'
 
-project(':gradle-plugin').name = 'gradle'
+project(':gradle-plugin').name = 'gradle'*/

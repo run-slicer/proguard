@@ -20,14 +20,13 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.constant.*;
 import proguard.classfile.util.ClassUtil;
 import proguard.evaluation.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.info.ParameterEscapeMarker;
+import proguard.util.Logger;
 
 /**
  * This InvocationUnit tags reference values like
@@ -42,7 +41,7 @@ import proguard.optimize.info.ParameterEscapeMarker;
 public class ParameterTracingInvocationUnit
 extends      ReferenceTracingInvocationUnit
 {
-    private static final Logger logger = LogManager.getLogger(ParameterTracingInvocationUnit.class);
+    private static final Logger logger = Logger.getLogger(ParameterTracingInvocationUnit.class);
 
 
     private Value[] parameters = new Value[256];

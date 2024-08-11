@@ -20,8 +20,6 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.annotation.*;
@@ -30,6 +28,7 @@ import proguard.classfile.editor.ConstantPoolEditor;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.optimize.info.*;
+import proguard.util.Logger;
 import proguard.util.ProcessingFlags;
 
 /**
@@ -40,7 +39,7 @@ public class DuplicateInitializerFixer
 implements   MemberVisitor,
              AttributeVisitor
 {
-    private static final Logger logger = LogManager.getLogger(DuplicateInitializerFixer.class);
+    private static final Logger logger = Logger.getLogger(DuplicateInitializerFixer.class);
 
     private static final char[] TYPES = new char[]
     {

@@ -20,8 +20,6 @@
  */
 package proguard.obfuscate;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.AppView;
 import proguard.Configuration;
 import proguard.classfile.AccessConstants;
@@ -102,6 +100,7 @@ import proguard.obfuscate.kotlin.KotlinValueParameterUsageMarker;
 import proguard.obfuscate.util.InstructionSequenceObfuscator;
 import proguard.pass.Pass;
 import proguard.resources.file.visitor.ResourceFileProcessingFlagFilter;
+import proguard.util.Logger;
 import proguard.util.PrintWriterUtil;
 import proguard.util.ProcessingFlags;
 
@@ -118,7 +117,7 @@ import java.util.Map;
  */
 public class Obfuscator implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Obfuscator.class);
+    private static final Logger logger = Logger.getLogger(Obfuscator.class);
     private final Configuration configuration;
 
     public Obfuscator(Configuration configuration)

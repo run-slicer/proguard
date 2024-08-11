@@ -20,8 +20,6 @@
  */
 package proguard.optimize.gson;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -32,6 +30,7 @@ import proguard.classfile.instruction.visitor.InstructionVisitor;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.evaluation.*;
 import proguard.evaluation.value.*;
+import proguard.util.Logger;
 
 /**
  * Class visitor that patches the constructor of Gson so that the injected
@@ -45,7 +44,7 @@ implements   MemberVisitor,
              AttributeVisitor,
              InstructionVisitor
 {
-    private static final Logger logger = LogManager.getLogger(GsonConstructorPatcher.class);
+    private static final Logger logger = Logger.getLogger(GsonConstructorPatcher.class);
 
     private final CodeAttributeEditor codeAttributeEditor;
     private final TypedReferenceValueFactory valueFactory         =

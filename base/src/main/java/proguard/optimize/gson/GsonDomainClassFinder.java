@@ -20,14 +20,13 @@
  */
 package proguard.optimize.gson;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.annotation.Annotation;
 import proguard.classfile.attribute.annotation.visitor.*;
 import proguard.classfile.attribute.visitor.AllAttributeVisitor;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
+import proguard.util.Logger;
 import proguard.util.ProcessingFlags;
 
 import java.util.*;
@@ -42,7 +41,7 @@ import java.util.*;
 public class GsonDomainClassFinder
 implements   ClassVisitor
 {
-    private static final Logger logger = LogManager.getLogger(GsonDomainClassFinder.class);
+    private static final Logger logger = Logger.getLogger(GsonDomainClassFinder.class);
     //*
     public static final boolean DEBUG = false;
     /*/

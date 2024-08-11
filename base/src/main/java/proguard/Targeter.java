@@ -20,12 +20,11 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.ClassPool;
 import proguard.classfile.util.ClassUtil;
 import proguard.classfile.visitor.ClassVersionSetter;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 
 import java.io.IOException;
 import java.util.*;
@@ -37,7 +36,7 @@ import java.util.*;
  */
 public class Targeter implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Targeter.class);
+    private static final Logger logger = Logger.getLogger(Targeter.class);
     private final Configuration configuration;
 
     public Targeter(Configuration configuration)

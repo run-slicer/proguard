@@ -20,8 +20,6 @@
  */
 package proguard.optimize.peephole;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -30,6 +28,7 @@ import proguard.classfile.util.*;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.optimize.*;
 import proguard.optimize.info.*;
+import proguard.util.Logger;
 
 /**
  * This MemberVisitor removes unused local variables from the code of the methods
@@ -43,7 +42,7 @@ import proguard.optimize.info.*;
 public class VariableShrinker
 implements   AttributeVisitor
 {
-    private static final Logger logger = LogManager.getLogger(VariableShrinker.class);
+    private static final Logger logger = Logger.getLogger(VariableShrinker.class);
 
 
     private final MemberVisitor extraVariableMemberVisitor;

@@ -20,8 +20,6 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -29,6 +27,7 @@ import proguard.classfile.editor.VariableRemapper;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
 import proguard.optimize.info.*;
+import proguard.util.Logger;
 
 /**
  * This AttributeVisitor removes unused parameters from the code of the methods
@@ -42,7 +41,7 @@ import proguard.optimize.info.*;
 public class ParameterShrinker
 implements   AttributeVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ParameterShrinker.class);
+    private static final Logger logger = Logger.getLogger(ParameterShrinker.class);
 
     private final MemberVisitor extraUnusedParameterMethodVisitor;
 

@@ -20,8 +20,6 @@
  */
 package proguard.optimize.peephole;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -29,6 +27,7 @@ import proguard.classfile.editor.CodeAttributeEditor;
 import proguard.classfile.instruction.*;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
 import proguard.classfile.util.BranchTargetFinder;
+import proguard.util.Logger;
 
 /**
  * This AttributeVisitor redirects unconditional branches so any common code
@@ -41,7 +40,7 @@ public class GotoCommonCodeReplacer
 implements   AttributeVisitor,
              InstructionVisitor
 {
-    private static final Logger logger = LogManager.getLogger(GotoCommonCodeReplacer.class);
+    private static final Logger logger = Logger.getLogger(GotoCommonCodeReplacer.class);
 
 
     private final InstructionVisitor  extraInstructionVisitor;

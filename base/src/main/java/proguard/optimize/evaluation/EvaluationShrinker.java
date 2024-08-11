@@ -20,9 +20,6 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -35,6 +32,7 @@ import proguard.classfile.visitor.*;
 import proguard.evaluation.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.info.ParameterUsageMarker;
+import proguard.util.Logger;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -49,7 +47,7 @@ public class EvaluationShrinker
 implements   AttributeVisitor,
              ExceptionInfoVisitor
 {
-    private static final Logger logger = LogManager.getLogger(EvaluationShrinker.class);
+    private static final Logger logger = Logger.getLogger(EvaluationShrinker.class);
 
     // Useful short sequences of simple instructions (LSB first).
     private static final int UNSUPPORTED         = -1;
@@ -199,7 +197,7 @@ implements   AttributeVisitor,
             ex.printStackTrace();
             logger.error("Not optimizing this method");
 
-            logger.debug("{}", () -> {
+            /*logger.debug("{}", () -> {
                 StringWriter sw = new StringWriter();
                 method.accept(clazz, new ClassPrinter(new PrintWriter(sw)));
                 return sw.toString();
@@ -207,7 +205,7 @@ implements   AttributeVisitor,
             if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
             {
                 throw ex;
-            }
+            }*/
         }
     }
 
@@ -270,7 +268,7 @@ implements   AttributeVisitor,
 
         logger.debug("Simplification results:");
 
-        if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
+        /*if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
         {
             int offset = 0;
             do {
@@ -313,7 +311,7 @@ implements   AttributeVisitor,
                 offset += instruction.length(offset);
             }
             while (offset < codeLength);
-        }
+        }*/
 
         // Clear exception handlers that are not necessary.
         codeAttribute.exceptionsAccept(clazz, method, this);

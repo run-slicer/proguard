@@ -20,9 +20,6 @@
  */
 package proguard.optimize.peephole;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -35,6 +32,7 @@ import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
 import proguard.optimize.*;
 import proguard.optimize.info.*;
+import proguard.util.Logger;
 import proguard.util.ProcessingFlagSetter;
 import proguard.util.ProcessingFlags;
 
@@ -73,7 +71,7 @@ implements            AttributeVisitor,
     static final int METHOD_DUMMY_START_LINE_NUMBER = 0;
     static final int INLINED_METHOD_END_LINE_NUMBER = -1;
 
-    private static final Logger logger = LogManager.getLogger(MethodInliner.class);
+    private static final Logger logger = Logger.getLogger(MethodInliner.class);
 
     protected final boolean            microEdition;
     protected final boolean            android;
@@ -226,7 +224,7 @@ implements            AttributeVisitor,
 
             logger.error("Not inlining this method");
 
-            logger.debug("{}", () -> {
+            /*logger.debug("{}", () -> {
                 StringWriter sw = new StringWriter();
                 targetMethod.accept(targetClass, new ClassPrinter(new PrintWriter(sw)));
                 return sw.toString();
@@ -243,7 +241,7 @@ implements            AttributeVisitor,
             if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
             {
                 throw ex;
-            }
+            }*/
         }
     }
 
@@ -842,7 +840,7 @@ implements            AttributeVisitor,
         }
         catch (IllegalArgumentException e)
         {
-            if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
+            /*if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
             {
                 logger.error("Invalid line number while inlining method:");
                 logger.error("  Target class   = [{}]", targetClass.getName());
@@ -853,7 +851,7 @@ implements            AttributeVisitor,
                     logger.error("  Inlined method = [{}{}]", method.getName(clazz), method.getDescriptor(clazz));
                 }
                 logger.error("  Exception      = [{}] ({})", e.getClass().getName(), e.getMessage());
-            }
+            }*/
         }
     }
 

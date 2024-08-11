@@ -20,8 +20,6 @@
  */
 package proguard.optimize.peephole;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.annotation.*;
@@ -33,6 +31,7 @@ import proguard.classfile.editor.*;
 import proguard.classfile.visitor.*;
 import proguard.optimize.info.ClassOptimizationInfo;
 import proguard.util.ArrayUtil;
+import proguard.util.Logger;
 
 import java.util.Arrays;
 
@@ -58,7 +57,7 @@ implements   ClassVisitor,
              AnnotationVisitor,
              ElementValueVisitor
 {
-    private static final Logger logger = LogManager.getLogger(TargetClassChanger.class);
+    private static final Logger logger = Logger.getLogger(TargetClassChanger.class);
 
 
     // Implementations for ClassVisitor.

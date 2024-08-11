@@ -20,8 +20,6 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.AccessConstants;
 import proguard.classfile.ClassConstants;
 import proguard.classfile.Clazz;
@@ -37,6 +35,7 @@ import proguard.classfile.util.InternalTypeEnumeration;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.evaluation.value.Value;
 import proguard.optimize.evaluation.StoringInvocationUnit;
+import proguard.util.Logger;
 import proguard.util.ProcessingFlags;
 
 /**
@@ -53,7 +52,7 @@ import proguard.util.ProcessingFlags;
 public class MemberDescriptorSpecializer
 implements   MemberVisitor
 {
-    private static final Logger logger = LogManager.getLogger(MemberDescriptorSpecializer.class);
+    private static final Logger logger = Logger.getLogger(MemberDescriptorSpecializer.class);
 
     private final boolean       specializeFieldTypes;
     private final boolean       specializeMethodParameterTypes;

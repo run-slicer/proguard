@@ -20,8 +20,6 @@
  */
 package proguard.optimize.peephole;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.Attribute;
 import proguard.classfile.attribute.visitor.*;
@@ -55,7 +53,7 @@ public class ClassMerger
 implements   ClassVisitor,
              ConstantVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ClassMerger.class);
+    private static final Logger logger = Logger.getLogger(ClassMerger.class);
     //*
     private static final boolean DEBUG   = false;
     private static final boolean DETAILS = false;
@@ -151,7 +149,7 @@ implements   ClassVisitor,
             logger.error("  Target class = [{}]", targetClass.getName());
             logger.error("  Exception    = [{}] ({})", ex.getClass().getName(), ex.getMessage());
 
-            logger.debug("{}", () -> {
+            /*logger.debug("{}", () -> {
                 StringWriter sw = new StringWriter();
                 programClass.accept(new ClassPrinter(new PrintWriter(sw)));
                 return sw.toString();
@@ -160,7 +158,7 @@ implements   ClassVisitor,
                 StringWriter sw = new StringWriter();
                 targetClass.accept(new ClassPrinter(new PrintWriter(sw)));
                 return sw.toString();
-            });
+            });*/
             throw ex;
         }
     }
@@ -183,7 +181,7 @@ implements   ClassVisitor,
             logger.debug("  Source superclass [{}]", programClass.getSuperClass().getName());
             logger.debug("  Target superclass [{}]", targetClass.getSuperClass().getName());
 
-            logger.trace("=== Before ===");
+            /*logger.trace("=== Before ===");
             logger.trace("{}", () -> {
                 StringWriter sw = new StringWriter();
                 programClass.accept(new ClassPrinter(new PrintWriter(sw)));
@@ -193,7 +191,7 @@ implements   ClassVisitor,
                 StringWriter sw = new StringWriter();
                 targetClass.accept(new ClassPrinter(new PrintWriter(sw)));
                 return sw.toString();
-            });
+            });*/
 
             // Combine the access flags.
             int targetAccessFlags = targetClass.getAccessFlags();
@@ -279,7 +277,7 @@ implements   ClassVisitor,
             // Remember to replace the inlined class by the target class.
             setTargetClass(programClass, targetClass);
 
-            logger.trace("=== After ====");
+            /*logger.trace("=== After ====");
             logger.trace("Target instantiated? {}", InstantiationClassMarker.isInstantiated(targetClass));
             logger.trace("{}", () -> {
                 StringWriter sw = new StringWriter();
@@ -291,7 +289,7 @@ implements   ClassVisitor,
                 StringWriter sw = new StringWriter();
                 targetClass.interfaceConstantsAccept(new ClassPrinter(new PrintWriter(sw)));
                 return sw.toString();
-            });
+            });*/
 
             // Visit the merged class, if required.
             if (extraClassVisitor != null)

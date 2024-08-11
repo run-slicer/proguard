@@ -20,9 +20,6 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -37,6 +34,7 @@ import proguard.evaluation.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.info.*;
 import proguard.util.ArrayUtil;
+import proguard.util.Logger;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -59,7 +57,7 @@ import java.util.*;
 public class InstructionUsageMarker
 implements   AttributeVisitor
 {
-    private static final Logger logger = LogManager.getLogger(InstructionUsageMarker.class);
+    private static final Logger logger = Logger.getLogger(InstructionUsageMarker.class);
 
     private final PartialEvaluator                partialEvaluator;
     private final boolean                         runPartialEvaluator;
@@ -380,11 +378,11 @@ implements   AttributeVisitor
             logger.error("  Method      = [{}{}]", method.getName(clazz), method.getDescriptor(clazz));
             logger.error("  Exception   = [{}] ({})", ex.getClass().getName(), ex.getMessage());
 
-            logger.debug("{}", () -> {
+            /*logger.debug("{}", () -> {
                 StringWriter sw = new StringWriter();
                 method.accept(clazz, new ClassPrinter(new PrintWriter(sw)));
                 return sw.toString();
-            });
+            });*/
 
             throw ex;
         }
@@ -550,7 +548,7 @@ implements   AttributeVisitor
                                        false);
             }
         }
-        logger.debug("Instruction usage results:");
+        /*logger.debug("Instruction usage results:");
 
         if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
         {
@@ -566,7 +564,7 @@ implements   AttributeVisitor
                 offset += instruction.length(offset);
             }
             while (offset < codeLength);
-        }
+        }*/
     }
 
 

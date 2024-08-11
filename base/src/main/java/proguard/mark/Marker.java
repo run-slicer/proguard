@@ -20,8 +20,6 @@
  */
 package proguard.mark;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.AppView;
 import proguard.Configuration;
 import proguard.KeepClassSpecificationVisitorFactory;
@@ -67,6 +65,7 @@ import proguard.classfile.visitor.MultiClassVisitor;
 import proguard.classfile.visitor.MultiMemberVisitor;
 import proguard.classfile.visitor.NamedMethodVisitor;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 import proguard.util.Processable;
 import proguard.util.ProcessingFlagSetter;
 import proguard.util.ProcessingFlags;
@@ -91,7 +90,7 @@ import static proguard.util.ProcessingFlags.INJECTED;
  */
 public class Marker implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Marker.class);
+    private static final Logger logger = Logger.getLogger(Marker.class);
 
     private final Configuration configuration;
 

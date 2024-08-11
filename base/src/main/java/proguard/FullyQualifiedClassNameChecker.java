@@ -20,11 +20,10 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
+import proguard.util.Logger;
 
 import java.util.*;
 
@@ -37,7 +36,7 @@ import java.util.*;
 public class FullyQualifiedClassNameChecker
 implements   ClassVisitor
 {
-    private static final Logger logger = LogManager.getLogger(FullyQualifiedClassNameChecker.class);
+    private static final Logger logger = Logger.getLogger(FullyQualifiedClassNameChecker.class);
     private static final String INVALID_CLASS_EXTENSION = ClassUtil.internalClassName(ClassConstants.CLASS_FILE_EXTENSION);
 
 

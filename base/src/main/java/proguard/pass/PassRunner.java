@@ -7,15 +7,14 @@
 
 package proguard.pass;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.*;
 import proguard.util.Benchmark;
+import proguard.util.Logger;
 import proguard.util.TimeUtil;
 
 public class PassRunner
 {
-    private static final Logger    logger    = LogManager.getLogger(PassRunner.class);
+    private static final Logger    logger    = Logger.getLogger(PassRunner.class);
     private        final Benchmark benchmark = new Benchmark();
 
     public void run(Pass pass, AppView appView) throws Exception
@@ -24,6 +23,6 @@ public class PassRunner
         pass.execute(appView);
         benchmark.stop();
 
-        logger.debug("Pass {} completed in {}", pass::getName, () -> TimeUtil.millisecondsToMinSecReadable(benchmark.getElapsedTimeMs()));
+        logger.debug("Pass {} completed in {}", pass.getName(), TimeUtil.millisecondsToMinSecReadable(benchmark.getElapsedTimeMs()));
     }
 }

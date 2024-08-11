@@ -20,8 +20,8 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import proguard.util.Logger;
 
 import java.io.*;
 import java.util.*;
@@ -33,7 +33,7 @@ import java.util.*;
  */
 public class GPL
 {
-    private static final Logger logger = LogManager.getLogger(GPL.class);
+    private static final Logger logger = Logger.getLogger(GPL.class);
 
     /**
      * Prints out a note about the GPL if ProGuard is linked against unknown

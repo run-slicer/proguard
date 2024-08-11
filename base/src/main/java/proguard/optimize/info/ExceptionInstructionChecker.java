@@ -20,12 +20,11 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.CodeAttribute;
 import proguard.classfile.instruction.*;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
+import proguard.util.Logger;
 
 /**
  * This class can tell whether an instruction might throw exceptions.
@@ -37,7 +36,7 @@ implements   InstructionVisitor
 //             ConstantVisitor,
 //             MemberVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ExceptionInstructionChecker.class);
+    private static final Logger logger = Logger.getLogger(ExceptionInstructionChecker.class);
 
 
     // A return value for the visitor methods.

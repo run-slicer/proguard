@@ -20,8 +20,6 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -31,6 +29,7 @@ import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.evaluation.StoringInvocationUnit;
+import proguard.util.Logger;
 
 /**
  * This ClassVisitor marks all program classes that are a simple wrapper for a
@@ -50,7 +49,7 @@ implements   ClassVisitor,
              MemberVisitor,
              AttributeVisitor
 {
-    private static final Logger logger = LogManager.getLogger(WrapperClassMarker.class);
+    private static final Logger logger = Logger.getLogger(WrapperClassMarker.class);
 
 
     private final Constant[] INITIALIZER_CONSTANTS = new Constant[]

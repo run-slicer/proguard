@@ -20,9 +20,6 @@
  */
 package proguard.optimize.gson;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.AppView;
 import proguard.Configuration;
 import proguard.classfile.*;
@@ -36,6 +33,7 @@ import proguard.classfile.visitor.*;
 import proguard.io.ClassPathDataEntry;
 import proguard.io.ClassReader;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 import proguard.util.ProcessingFlagSetter;
 import proguard.util.ProcessingFlags;
 import proguard.util.StringUtil;
@@ -80,7 +78,7 @@ import static proguard.optimize.gson.OptimizedClassConstants.*;
  */
 public class GsonOptimizer implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(GsonOptimizer.class);
+    private static final Logger logger = Logger.getLogger(GsonOptimizer.class);
     //*
     public static final boolean DEBUG = false;
     /*/
@@ -317,7 +315,7 @@ public class GsonOptimizer implements Pass
 
             logger.info("  Number of optimized serializable classes:      {}", gsonContext.gsonDomainClassPool.size() );
 
-            if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
+            /*if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
             {
                 // Inject instrumentation code in Gson.toJson() and Gson.fromJson().
                 appView.programClassPool.classAccept(NAME_GSON,
@@ -340,7 +338,7 @@ public class GsonOptimizer implements Pass
                     new GsonInstrumentationAdder(appView.programClassPool,
                                                  appView.libraryClassPool,
                                                  codeAttributeEditor))))))));
-            }
+            }*/
         }
     }
 }

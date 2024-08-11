@@ -20,8 +20,7 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import proguard.util.Logger;
 
 import java.io.File;
 import java.net.*;
@@ -33,7 +32,7 @@ import java.net.*;
  */
 public class UpToDateChecker
 {
-    private static final Logger logger = LogManager.getLogger(UpToDateChecker.class);
+    private static final Logger logger = Logger.getLogger(UpToDateChecker.class);
     private final Configuration configuration;
 
 
@@ -106,7 +105,7 @@ public class UpToDateChecker
             return;
         }
 
-        logger.always().log("The output seems up to date");
+        logger.info("The output seems up to date");
 
         throw new UpToDateException();
     }

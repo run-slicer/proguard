@@ -20,8 +20,6 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.AccessConstants;
 import proguard.classfile.Clazz;
 import proguard.classfile.Member;
@@ -33,6 +31,7 @@ import proguard.classfile.visitor.MemberToClassVisitor;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.optimize.OptimizationInfoClassFilter;
 import proguard.optimize.info.SimpleEnumMarker;
+import proguard.util.Logger;
 
 import java.util.Collections;
 import java.util.Set;
@@ -49,7 +48,7 @@ import static proguard.classfile.ClassConstants.METHOD_TYPE_INIT_ENUM;
 public class SimpleEnumClassChecker
 implements   ClassVisitor
 {
-    private static final Logger logger = LogManager.getLogger(SimpleEnumClassChecker.class);
+    private static final Logger logger = Logger.getLogger(SimpleEnumClassChecker.class);
 
 
     private final ClassVisitor  simpleEnumMarker      = new OptimizationInfoClassFilter(

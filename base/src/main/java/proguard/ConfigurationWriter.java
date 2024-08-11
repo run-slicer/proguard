@@ -20,8 +20,6 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.util.ClassUtil;
 import proguard.optimize.Optimizer;
@@ -38,7 +36,7 @@ import java.util.*;
  */
 public class ConfigurationWriter implements AutoCloseable
 {
-    private static final Logger logger = LogManager.getLogger(ConfigurationWriter.class);
+    private static final Logger logger = Logger.getLogger(ConfigurationWriter.class);
 
     private static final String[] KEEP_OPTIONS = new String[]
     {

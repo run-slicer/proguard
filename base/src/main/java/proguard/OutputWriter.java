@@ -20,8 +20,6 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.ClassPool;
 import proguard.classfile.io.visitor.ProcessingFlagDataEntryFilter;
 import proguard.classfile.kotlin.KotlinConstants;
@@ -51,7 +49,7 @@ import java.util.*;
  */
 public class OutputWriter implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(OutputWriter.class);
+    private static final Logger logger = Logger.getLogger(OutputWriter.class);
     private final Configuration configuration;
 
     public OutputWriter(Configuration configuration)

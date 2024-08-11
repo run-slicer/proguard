@@ -21,8 +21,6 @@
 
 package proguard.optimize.peephole;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -33,6 +31,7 @@ import proguard.classfile.instruction.*;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
 import proguard.classfile.visitor.ClassVisitor;
 import proguard.optimize.info.WrapperClassMarker;
+import proguard.util.Logger;
 
 /**
  * This AttributeVisitor simplifies the use of retargeted wrapper classes in
@@ -54,7 +53,7 @@ implements   AttributeVisitor,
              ConstantVisitor,
              ClassVisitor
 {
-    private static final Logger logger = LogManager.getLogger(WrapperClassUseSimplifier.class);
+    private static final Logger logger = Logger.getLogger(WrapperClassUseSimplifier.class);
 
 
     private final InstructionVisitor extraInstructionVisitor;

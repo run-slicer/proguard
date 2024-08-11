@@ -20,14 +20,13 @@
  */
 package proguard.preverify;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.AppView;
 import proguard.Configuration;
 import proguard.classfile.*;
 import proguard.classfile.attribute.visitor.AllAttributeVisitor;
 import proguard.classfile.visitor.*;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 
 /**
  * This pass can preverify methods in program class pools, according to a given
@@ -37,7 +36,7 @@ import proguard.pass.Pass;
  */
 public class Preverifier implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Preverifier.class);
+    private static final Logger logger = Logger.getLogger(Preverifier.class);
 
     private final Configuration configuration;
 

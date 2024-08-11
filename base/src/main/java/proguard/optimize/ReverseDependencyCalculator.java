@@ -20,14 +20,13 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.ProGuard;
 import proguard.classfile.*;
 import proguard.classfile.attribute.visitor.*;
 import proguard.classfile.instruction.visitor.*;
 import proguard.classfile.visitor.*;
 import proguard.optimize.info.*;
+import proguard.util.Logger;
 import proguard.util.MultiValueMap;
 
 /**
@@ -39,7 +38,7 @@ import proguard.util.MultiValueMap;
  */
 public class ReverseDependencyCalculator
 {
-    private static final Logger logger = LogManager.getFormatterLogger(ReverseDependencyCalculator.class);
+    private static final Logger logger = Logger.getLogger(ReverseDependencyCalculator.class);
 
     private final ClassPool classPool;
 

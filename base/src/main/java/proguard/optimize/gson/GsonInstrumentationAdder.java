@@ -20,13 +20,12 @@
  */
 package proguard.optimize.gson;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.CodeAttribute;
 import proguard.classfile.editor.*;
 import proguard.classfile.instruction.*;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
+import proguard.util.Logger;
 
 import static proguard.classfile.instruction.Instruction.OP_ARETURN;
 import static proguard.classfile.instruction.Instruction.OP_RETURN;
@@ -41,7 +40,7 @@ import static proguard.classfile.instruction.Instruction.OP_RETURN;
 public class GsonInstrumentationAdder
 implements   InstructionVisitor
 {
-    private static final Logger logger = LogManager.getLogger(GsonInstrumentationAdder.class);
+    private static final Logger logger = Logger.getLogger(GsonInstrumentationAdder.class);
 
     private final ClassPool           programClassPool;
     private final ClassPool           libraryClassPool;

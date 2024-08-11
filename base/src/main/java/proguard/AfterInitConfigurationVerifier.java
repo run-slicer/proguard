@@ -7,12 +7,11 @@
 
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.util.ClassUtil;
 import proguard.classfile.visitor.ClassVisitor;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 
 /**
  * This pass performs configuration checks for which class pools or resource information
@@ -22,7 +21,7 @@ public class AfterInitConfigurationVerifier implements Pass
 {
     private final Configuration configuration;
 
-    private static final Logger logger = LogManager.getLogger(AfterInitConfigurationVerifier.class);
+    private static final Logger logger = Logger.getLogger(AfterInitConfigurationVerifier.class);
 
     public AfterInitConfigurationVerifier(Configuration configuration)
     {

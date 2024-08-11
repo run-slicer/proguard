@@ -20,9 +20,6 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -35,6 +32,7 @@ import proguard.classfile.visitor.*;
 import proguard.evaluation.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.evaluation.*;
+import proguard.util.Logger;
 
 /**
  * This ClassPoolVisitor marks the reference parameters that have escaped or
@@ -51,7 +49,7 @@ implements   ClassPoolVisitor,
              InstructionVisitor,
              ConstantVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ParameterEscapedMarker.class);
+    private static final Logger logger = Logger.getLogger(ParameterEscapedMarker.class);
 
     private final ClassVisitor                 parameterEscapedMarker =
         new AllMethodVisitor(
@@ -97,10 +95,10 @@ implements   ClassPoolVisitor,
         }
         while (newEscapes);
 
-        if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
+        /*if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
         {
             classPool.classesAccept(new AllMethodVisitor(this));
-        }
+        }*/
     }
 
 
@@ -118,7 +116,7 @@ implements   ClassPoolVisitor,
             ClassUtil.internalMethodParameterSize(programMethod.getDescriptor(programClass),
                                                   programMethod.getAccessFlags());
 
-        if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
+        /*if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
         {
             for (int index = 0; index < parameterSize; index++) {
                 logger.debug("  {} P{}",
@@ -126,7 +124,7 @@ implements   ClassPoolVisitor,
                         index
                 );
             }
-        }
+        }*/
     }
 
 

@@ -7,19 +7,18 @@
 
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.io.kotlin.KotlinMetadataWriter;
 import proguard.classfile.kotlin.KotlinMetadataVersion;
 import proguard.classfile.kotlin.visitor.ReferencedKotlinMetadataVisitor;
 import proguard.classfile.visitor.ClassCounter;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 
 
 public class KotlinMetadataAdapter
 implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(KotlinMetadataAdapter.class);
+    private static final Logger logger = Logger.getLogger(KotlinMetadataAdapter.class);
 
 
     @Override

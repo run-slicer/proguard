@@ -20,8 +20,6 @@
  */
 package proguard.backport;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.*;
 import proguard.classfile.*;
 import proguard.classfile.attribute.Attribute;
@@ -33,6 +31,7 @@ import proguard.classfile.instruction.visitor.InstructionCounter;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 
 import java.io.IOException;
 
@@ -43,7 +42,7 @@ import java.io.IOException;
  */
 public class Backporter implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Backporter.class);
+    private static final Logger logger = Logger.getLogger(Backporter.class);
     private final Configuration configuration;
 
     public Backporter(Configuration configuration)

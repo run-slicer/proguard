@@ -20,8 +20,6 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -29,6 +27,7 @@ import proguard.classfile.editor.*;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.evaluation.LivenessAnalyzer;
+import proguard.util.Logger;
 
 /**
  * This AttributeVisitor optimizes variable allocation based on their the liveness,
@@ -41,7 +40,7 @@ implements   AttributeVisitor,
              LocalVariableInfoVisitor,
              LocalVariableTypeInfoVisitor
 {
-    private static final Logger logger = LogManager.getLogger(VariableOptimizer.class);
+    private static final Logger logger = Logger.getLogger(VariableOptimizer.class);
 
     private static final int MAX_VARIABLES_SIZE = 64;
 

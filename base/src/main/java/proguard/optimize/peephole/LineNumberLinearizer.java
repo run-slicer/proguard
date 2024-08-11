@@ -21,8 +21,6 @@
 package proguard.optimize.peephole;
 
 import proguard.AppView;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.Clazz;
 import proguard.classfile.Method;
 import proguard.classfile.ProgramClass;
@@ -40,6 +38,7 @@ import proguard.classfile.attribute.visitor.LineNumberRangeFinder;
 import proguard.classfile.visitor.ClassVisitor;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 
 import java.util.Stack;
 
@@ -59,7 +58,7 @@ implements   Pass,
              AttributeVisitor,
              LineNumberInfoVisitor
 {
-    private static final Logger logger = LogManager.getLogger(LineNumberLinearizer.class);
+    private static final Logger logger = Logger.getLogger(LineNumberLinearizer.class);
 
     public  static final int SHIFT_ROUNDING       = 1000;
     private static final int SHIFT_ROUNDING_LIMIT = 50000;

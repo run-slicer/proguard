@@ -20,13 +20,12 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.visitor.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.OptimizationInfoMemberFilter;
 import proguard.optimize.info.*;
+import proguard.util.Logger;
 
 /**
  * This ClassVisitor propagates the value of the $VALUES field to the values()
@@ -39,7 +38,7 @@ public class SimpleEnumArrayPropagator
 implements   ClassVisitor,
              MemberVisitor
 {
-    private static final Logger logger = LogManager.getLogger(SimpleEnumArrayPropagator.class);
+    private static final Logger logger = Logger.getLogger(SimpleEnumArrayPropagator.class);
 
 
     private final MemberVisitor fieldArrayFinder      = new MemberDescriptorFilter("[I", this);

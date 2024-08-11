@@ -20,8 +20,6 @@
  */
 package proguard.optimize.gson;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.ClassPool;
 import proguard.classfile.Clazz;
 import proguard.classfile.JavaTypeConstants;
@@ -37,6 +35,7 @@ import proguard.classfile.visitor.MultiClassVisitor;
 import proguard.io.ClassPathDataEntry;
 import proguard.io.ClassReader;
 import proguard.io.ExtraDataEntryNameMap;
+import proguard.util.Logger;
 import proguard.util.ProcessingFlagSetter;
 import proguard.util.ProcessingFlags;
 
@@ -53,7 +52,7 @@ import static proguard.optimize.gson.OptimizedClassConstants.NAME_OPTIMIZED_TYPE
  */
 public class OptimizedTypeAdapterAdder implements ClassVisitor
 {
-    private static final Logger logger = LogManager.getLogger(OptimizedTypeAdapterAdder.class);
+    private static final Logger logger = Logger.getLogger(OptimizedTypeAdapterAdder.class);
     //*
     public static final boolean DEBUG = false;
     /*/

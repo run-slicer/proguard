@@ -20,8 +20,6 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.AppView;
 import proguard.ClassSpecificationVisitorFactory;
 import proguard.Configuration;
@@ -180,12 +178,7 @@ import proguard.optimize.peephole.VerticalClassMerger;
 import proguard.optimize.peephole.WrapperClassMerger;
 import proguard.optimize.peephole.WrapperClassUseSimplifier;
 import proguard.pass.Pass;
-import proguard.util.ConstantMatcher;
-import proguard.util.ListParser;
-import proguard.util.NameParser;
-import proguard.util.ProcessingFlagSetter;
-import proguard.util.ProcessingFlags;
-import proguard.util.StringMatcher;
+import proguard.util.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -203,7 +196,7 @@ import java.util.Set;
  */
 public class Optimizer implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Optimizer.class);
+    private static final Logger logger = Logger.getLogger(Optimizer.class);
 
     public  static final String LIBRARY_GSON                         = "library/gson";
     private static final String CLASS_MARKING_FINAL                  = "class/marking/final";

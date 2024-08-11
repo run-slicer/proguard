@@ -38,7 +38,7 @@ allprojects { Project project ->
                     repositories {
                         maven {
                             name = 'Github'
-                            url = uri('https://maven.pkg.github.com/guardsquare/proguard')
+                            url = uri('https://maven.pkg.github.com/run-slicer/proguard')
                             credentials {
                                 username = project.findProperty('PROGUARD_GITHUB_USERNAME')
                                 password = project.findProperty('PROGUARD_GITHUB_TOKEN')
@@ -143,41 +143,41 @@ allprojects { Project project ->
     }
 }
 
-distributions {
-    main {
-        distributionBaseName.set('proguard')
-        contents {
-            into('lib') {
-                from tasks.getByPath(':proguard-app:fatJar').outputs
-                from tasks.getByPath(':gui:fatJar').outputs
-                from tasks.getByPath(':retrace:fatJar').outputs
-                from tasks.getByPath(':ant:fatJar').outputs
-            }
-            into('docs') {
-                from('docs/md') {
-                    includeEmptyDirs = false
-                    include '**/*.md'
-                }
-            }
-            from(rootDir) {
-                include 'bin/'
-                include 'examples/'
-                exclude 'examples/*/build'
-                exclude 'examples/*/.gradle'
-                include 'LICENSE'
-                include 'LICENSE_exception.md'
-            }
-        }
-    }
-}
-
-distTar {
-    compression = Compression.GZIP
-    archiveExtension.set('tar.gz')
-}
-
-clean {
-    delete file("$rootDir/lib")
-// TODO docker runs as root, so cannot clean the HTML yet
-//    delete buildDocumentation.outputs
-}
+//distributions {
+//    main {
+//        distributionBaseName.set('proguard')
+//        contents {
+//            into('lib') {
+//                from tasks.getByPath(':proguard-app:fatJar').outputs
+//                from tasks.getByPath(':gui:fatJar').outputs
+//                from tasks.getByPath(':retrace:fatJar').outputs
+//                from tasks.getByPath(':ant:fatJar').outputs
+//            }
+//            into('docs') {
+//                from('docs/md') {
+//                    includeEmptyDirs = false
+//                    include '**/*.md'
+//                }
+//            }
+//            from(rootDir) {
+//                include 'bin/'
+//                include 'examples/'
+//                exclude 'examples/*/build'
+//                exclude 'examples/*/.gradle'
+//                include 'LICENSE'
+//                include 'LICENSE_exception.md'
+//            }
+//        }
+//    }
+//}
+//
+//distTar {
+//    compression = Compression.GZIP
+//    archiveExtension.set('tar.gz')
+//}
+//
+//clean {
+//    delete file("$rootDir/lib")
+//// TODO docker runs as root, so cannot clean the HTML yet
+////    delete buildDocumentation.outputs
+//}

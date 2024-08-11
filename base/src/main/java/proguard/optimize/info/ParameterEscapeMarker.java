@@ -20,9 +20,6 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -35,6 +32,7 @@ import proguard.classfile.visitor.*;
 import proguard.evaluation.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.evaluation.*;
+import proguard.util.Logger;
 
 /**
  * This MemberVisitor, AttributeVisitor, and InstructionVisitor marks the
@@ -60,7 +58,7 @@ implements   MemberVisitor,
              ConstantVisitor,
              ParameterVisitor
 {
-    private static final Logger logger = LogManager.getLogger(ParameterEscapeMarker.class);
+    private static final Logger logger = Logger.getLogger(ParameterEscapeMarker.class);
 
 
     private final MemberVisitor          extraMemberVisitor;
@@ -204,7 +202,7 @@ implements   MemberVisitor,
             ClassUtil.internalMethodParameterCount(method.getDescriptor(clazz),
                                                    method.getAccessFlags());
 
-        if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
+        /*if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
         {
             for (int index = 0; index < parameterCount; index++) {
                 logger.debug("  {}{}{} P{}",
@@ -217,7 +215,7 @@ implements   MemberVisitor,
             }
         }
 
-        logger.debug("  {}   Return value", returnsExternalValues(method) ? 'X' : '.');
+        logger.debug("  {}   Return value", returnsExternalValues(method) ? 'X' : '.');*/
     }
 
 

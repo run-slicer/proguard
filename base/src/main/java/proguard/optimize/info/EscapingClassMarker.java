@@ -20,8 +20,6 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -31,6 +29,7 @@ import proguard.classfile.util.*;
 import proguard.classfile.visitor.ClassVisitor;
 import proguard.evaluation.*;
 import proguard.evaluation.value.*;
+import proguard.util.Logger;
 
 /**
  * This AttributeVisitor marks the classes that are escaping from the visited
@@ -44,7 +43,7 @@ implements   AttributeVisitor,
              InstructionVisitor,
              ClassVisitor
 {
-    private static final Logger logger = LogManager.getLogger(EscapingClassMarker.class);
+    private static final Logger logger = Logger.getLogger(EscapingClassMarker.class);
 
 
     private final PartialEvaluator       partialEvaluator;

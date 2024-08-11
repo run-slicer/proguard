@@ -20,9 +20,6 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.*;
@@ -33,6 +30,7 @@ import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
 import proguard.optimize.KeepMarker;
 import proguard.optimize.info.*;
+import proguard.util.Logger;
 
 /**
  * This ClassVisitor simplifies the descriptors that contain simple enums in
@@ -50,7 +48,7 @@ implements   ClassVisitor,
              LocalVariableInfoVisitor,
              LocalVariableTypeInfoVisitor
 {
-    private static final Logger logger = LogManager.getLogger(SimpleEnumDescriptorSimplifier.class);
+    private static final Logger logger = Logger.getLogger(SimpleEnumDescriptorSimplifier.class);
 
     private static final boolean DEBUG_EXTRA = false;
 
@@ -603,14 +601,14 @@ implements   ClassVisitor,
     {
         if (referencedClasses != null)
         {
-            if (logger.getLevel().isLessSpecificThan(Level.TRACE))
+            /*if (logger.getLevel().isLessSpecificThan(Level.TRACE))
             {
                 StringBuilder traceMessage = new StringBuilder("  Referenced before:");
                 for (int index = 0; index < referencedClasses.length; index++) {
                     traceMessage.append(String.format(" [%s]", referencedClasses[index] == null ? null : referencedClasses[index].getName()));
                 }
                 logger.trace(traceMessage);
-            }
+            }*/
 
             InternalTypeEnumeration typeEnumeration =
                 new InternalTypeEnumeration(descriptor);
@@ -769,14 +767,14 @@ implements   ClassVisitor,
 
                 referencedClasses = newReferencedClasses;
 
-                if (logger.getLevel().isLessSpecificThan(Level.TRACE))
+                /*if (logger.getLevel().isLessSpecificThan(Level.TRACE))
                 {
                     StringBuilder traceMessage = new StringBuilder("  Referenced after: ");
                     for (int index = 0; index < referencedClasses.length; index++) {
                         traceMessage.append(String.format(" [%s]", referencedClasses[index] == null ? null : referencedClasses[index].getName()));
                     }
                     logger.trace(traceMessage);
-                }
+                }*/
             }
         }
 

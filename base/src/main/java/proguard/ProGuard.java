@@ -20,8 +20,6 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.backport.Backporter;
 import proguard.classfile.editor.ClassElementSorter;
 import proguard.classfile.pass.PrimitiveArrayConstantIntroducer;
@@ -45,10 +43,7 @@ import proguard.preverify.Preverifier;
 import proguard.preverify.SubroutineInliner;
 import proguard.shrink.Shrinker;
 import proguard.strip.KotlinAnnotationStripper;
-import proguard.util.ConstantMatcher;
-import proguard.util.ListParser;
-import proguard.util.NameParser;
-import proguard.util.StringMatcher;
+import proguard.util.*;
 import proguard.util.kotlin.KotlinUnsupportedVersionChecker;
 import proguard.util.kotlin.asserter.KotlinMetadataVerifier;
 
@@ -62,7 +57,7 @@ import java.io.PrintWriter;
  */
 public class ProGuard
 {
-    private static final Logger logger = LogManager.getLogger(ProGuard.class);
+    private static final Logger logger = Logger.getLogger(ProGuard.class);
     public static final String VERSION = "ProGuard, version " + getVersion();
 
     /**
@@ -91,7 +86,7 @@ public class ProGuard
     {
         Logging.configureVerbosity(configuration.verbose);
 
-        logger.always().log(VERSION);
+        logger.info(VERSION);
 
         try
         {

@@ -20,10 +20,9 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.visitor.*;
+import proguard.util.Logger;
 
 import java.util.*;
 import java.util.concurrent.*;
@@ -38,7 +37,7 @@ import java.util.concurrent.*;
 public class InfluenceFixpointVisitor
 implements   ClassPoolVisitor
 {
-    private static final Logger logger = LogManager.getFormatterLogger(InfluenceFixpointVisitor.class);
+    private static final Logger logger = Logger.getLogger(InfluenceFixpointVisitor.class);
 
     // A copy of the code in ParallelAllClassVisitor.
     private static final int THREAD_COUNT;

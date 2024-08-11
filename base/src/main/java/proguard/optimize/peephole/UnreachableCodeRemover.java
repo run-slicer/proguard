@@ -20,14 +20,13 @@
  */
 package proguard.optimize.peephole;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
 import proguard.classfile.editor.CodeAttributeEditor;
 import proguard.classfile.instruction.Instruction;
 import proguard.classfile.instruction.visitor.InstructionVisitor;
+import proguard.util.Logger;
 
 /**
  * This InstructionVisitor deletes blocks of code that can never be reached by
@@ -39,7 +38,7 @@ public class UnreachableCodeRemover
 implements   AttributeVisitor,
              InstructionVisitor
 {
-    private static final Logger logger = LogManager.getLogger(UnreachableCodeRemover.class);
+    private static final Logger logger = Logger.getLogger(UnreachableCodeRemover.class);
 
     private final InstructionVisitor  extraInstructionVisitor;
 

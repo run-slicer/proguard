@@ -20,8 +20,6 @@
  */
 package proguard.optimize;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.AccessConstants;
 import proguard.classfile.ClassConstants;
 import proguard.classfile.Clazz;
@@ -41,6 +39,7 @@ import proguard.classfile.util.InternalTypeEnumeration;
 import proguard.classfile.visitor.MemberVisitor;
 import proguard.optimize.info.ParameterUsageMarker;
 import proguard.optimize.info.VariableUsageMarker;
+import proguard.util.Logger;
 
 /**
  * This MemberVisitor removes unused parameters in the descriptors of the
@@ -56,7 +55,7 @@ public class MethodDescriptorShrinker
 implements   MemberVisitor,
              AttributeVisitor
 {
-    private static final Logger logger = LogManager.getLogger(MethodDescriptorShrinker.class);
+    private static final Logger logger = Logger.getLogger(MethodDescriptorShrinker.class);
 
 
     private final MemberVisitor extraMemberVisitor;

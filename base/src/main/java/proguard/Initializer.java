@@ -20,8 +20,6 @@
  */
 package proguard;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.Attribute;
 import proguard.classfile.attribute.annotation.visitor.*;
@@ -35,6 +33,7 @@ import proguard.pass.Pass;
 import proguard.resources.file.visitor.ResourceJavaReferenceClassInitializer;
 import proguard.resources.kotlinmodule.util.KotlinModuleReferenceInitializer;
 import proguard.util.*;
+import proguard.util.Logger;
 
 import java.io.*;
 import java.util.*;
@@ -46,7 +45,7 @@ import java.util.*;
  */
 public class Initializer implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(Initializer.class);
+    private static final Logger logger = Logger.getLogger(Initializer.class);
     private final Configuration configuration;
 
     public Initializer(Configuration configuration)

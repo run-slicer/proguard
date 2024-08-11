@@ -20,9 +20,6 @@
  */
 package proguard.optimize.evaluation;
 
-import org.apache.logging.log4j.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
@@ -33,6 +30,7 @@ import proguard.classfile.visitor.ClassPrinter;
 import proguard.evaluation.*;
 import proguard.evaluation.value.*;
 import proguard.optimize.info.SideEffectInstructionChecker;
+import proguard.util.Logger;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -51,7 +49,7 @@ implements   AttributeVisitor,
     private static final int  POS_ZERO_FLOAT_BITS  = Float.floatToIntBits(0.0f);
     private static final long POS_ZERO_DOUBLE_BITS = Double.doubleToLongBits(0.0);
 
-    private static final Logger logger = LogManager.getLogger(EvaluationSimplifier.class);
+    private static final Logger logger = Logger.getLogger(EvaluationSimplifier.class);
 
     private final boolean            predictNullPointerExceptions;
     private final InstructionVisitor extraInstructionVisitor;
@@ -121,7 +119,7 @@ implements   AttributeVisitor,
             logger.error("  Exception   = [{}] ({})", ex.getClass().getName(), ex.getMessage());
             logger.error("Not optimizing this method");
 
-            logger.debug("{}", () -> {
+            /*logger.debug("{}", () -> {
                 StringWriter sw = new StringWriter();
                 method.accept(clazz, new ClassPrinter(new PrintWriter(sw)));
                 return sw.toString();
@@ -129,7 +127,7 @@ implements   AttributeVisitor,
             if (logger.getLevel().isLessSpecificThan(Level.DEBUG))
             {
                 throw ex;
-            }
+            }*/
         }
     }
 

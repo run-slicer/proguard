@@ -7,19 +7,18 @@
 
 package proguard.obfuscate;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.AppView;
 import proguard.Configuration;
 import proguard.classfile.visitor.ClassCleaner;
 import proguard.pass.Pass;
+import proguard.util.Logger;
 import proguard.util.PrintWriterUtil;
 
 import java.io.*;
 
 public class ObfuscationPreparation implements Pass
 {
-    private static final Logger logger = LogManager.getLogger(ObfuscationPreparation.class);
+    private static final Logger logger = Logger.getLogger(ObfuscationPreparation.class);
 
     private final Configuration configuration;
 

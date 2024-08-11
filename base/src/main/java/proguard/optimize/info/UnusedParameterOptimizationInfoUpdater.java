@@ -20,14 +20,13 @@
  */
 package proguard.optimize.info;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import proguard.classfile.*;
 import proguard.classfile.attribute.*;
 import proguard.classfile.attribute.visitor.AttributeVisitor;
 import proguard.classfile.util.*;
 import proguard.classfile.visitor.*;
 import proguard.optimize.*;
+import proguard.util.Logger;
 
 import java.util.*;
 
@@ -43,7 +42,7 @@ import java.util.*;
 public class UnusedParameterOptimizationInfoUpdater
 implements   AttributeVisitor
 {
-    private static final Logger logger = LogManager.getLogger(UnusedParameterOptimizationInfoUpdater.class);
+    private static final Logger logger = Logger.getLogger(UnusedParameterOptimizationInfoUpdater.class);
 
 
     private final MemberVisitor extraUnusedParameterMethodVisitor;
